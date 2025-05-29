@@ -429,7 +429,8 @@ body {
   line-height: 1.5;
   color: #6a7a8c;
   text-align: left;
-  background-color: #f2f4f5; }
+  background-color: #f2f4f5!important; 
+}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -7386,7 +7387,7 @@ html[dir="ltr"] body .p-l-0 {
     position: fixed;
     width: 100%; }
   #main-wrapper[data-layout="vertical"][data-header-position="fixed"] .page-wrapper {
-    padding-top: 64px; }
+    padding-top: 80px; }
   #main-wrapper[data-layout="vertical"][data-boxed-layout="boxed"] {
     max-width: 1200px;
     margin: 0 auto;
