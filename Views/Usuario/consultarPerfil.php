@@ -20,7 +20,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">Starter Page</h4>
+                        <h4 class="page-title">HOLA</h4>
                     </div>
                 </div>
             </div>
@@ -42,8 +42,8 @@
 
     <?php
         AddJs();
-    ?>    
-    
+    ?>
+
 </body>
 
 </html>
