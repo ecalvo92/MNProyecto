@@ -1,15 +1,39 @@
 <?php
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Models/connect.php';
 
     function ValidarInicioSesionModel($nombreUsuario, $contrasenna)
     {
-        //Enviar los datos a validar a la Base de Datos
-        return true;
+       try
+        {
+            $context = OpenDB();
+
+
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            return false;
+        }
     }
 
     function RegistrarUsuarioModel($nombre, $correo, $nombreUsuario, $contrasenna)
     {
-        //Enviar los datos a registrar a la Base de Datos
-        return true;
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL RegistrarUsuario('$nombre', '$correo', '$nombreUsuario', '$contrasenna')";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            return false;
+        }
     }
 
 ?>
