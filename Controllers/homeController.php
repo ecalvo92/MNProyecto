@@ -3,10 +3,10 @@
 
 if(isset($_POST["btnIniciarSesion"]))
 {
-    $nombreUsuario = $_POST["txtNombreUsuario"];
+    $correo = $_POST["txtCorreo"];
     $contrasenna = $_POST["txtContrasenna"];
 
-    $respuesta = ValidarInicioSesionModel($nombreUsuario, $contrasenna);
+    $respuesta = ValidarInicioSesionModel($correo, $contrasenna);
 
     if($respuesta != null && $respuesta -> num_rows > 0)
     {

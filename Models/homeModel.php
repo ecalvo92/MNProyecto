@@ -1,13 +1,13 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Models/connect.php';
 
-    function ValidarInicioSesionModel($nombreUsuario, $contrasenna)
+    function ValidarInicioSesionModel($correo, $contrasenna)
     {
-       try
+        try
         {
             $context = OpenDB();
 
-            $sp = "CALL ValidarInicioSesion('$nombreUsuario', '$contrasenna')";
+            $sp = "CALL ValidarInicioSesion('$correo', '$contrasenna')";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            
@@ -15,6 +15,7 @@
         }
         catch(Exception $error)
         {
+            RegistrarError($error);
             return null;
         }
     }
@@ -33,6 +34,7 @@
         }
         catch(Exception $error)
         {
+            RegistrarError($error);
             return false;
         }
     }

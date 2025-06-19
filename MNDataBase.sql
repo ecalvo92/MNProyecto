@@ -18,6 +18,31 @@ USE `mndatabase`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `terror`
+--
+
+DROP TABLE IF EXISTS `terror`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `terror` (
+  `IdError` bigint(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(5000) NOT NULL,
+  `FechaHora` datetime NOT NULL,
+  PRIMARY KEY (`IdError`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `terror`
+--
+
+LOCK TABLES `terror` WRITE;
+/*!40000 ALTER TABLE `terror` DISABLE KEYS */;
+INSERT INTO `terror` VALUES (1,'PROCEDURE mndatabase.ValidarInicioSesion2 does not exist','2025-06-18 19:49:23');
+/*!40000 ALTER TABLE `terror` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tusuario`
 --
 
@@ -28,10 +53,9 @@ CREATE TABLE `tusuario` (
   `IdUsuario` bigint(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(255) NOT NULL,
   `Correo` varchar(100) NOT NULL,
-  `NombreUsuario` varchar(20) NOT NULL,
+  `Identificacion` varchar(20) NOT NULL,
   `Contrasenna` varchar(10) NOT NULL,
-  PRIMARY KEY (`IdUsuario`),
-  UNIQUE KEY `NombreUsuario_UNIQUE` (`NombreUsuario`)
+  PRIMARY KEY (`IdUsuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -41,13 +65,35 @@ CREATE TABLE `tusuario` (
 
 LOCK TABLES `tusuario` WRITE;
 /*!40000 ALTER TABLE `tusuario` DISABLE KEYS */;
-INSERT INTO `tusuario` VALUES (1,'Eduardo Calvo Castillo','ecalvo90415@ufide.ac.cr','ecalvo','90419');
+INSERT INTO `tusuario` VALUES (1,'Eduardo Calvo Castillo','ecalvo90415@ufide.ac.cr','304590415','90415');
 /*!40000 ALTER TABLE `tusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'mndatabase'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `RegistrarError` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `RegistrarError`(pDescripcion varchar(5000))
+BEGIN
+
+	INSERT INTO terror(Descripcion,FechaHora)
+	VALUES (pDescripcion,NOW());
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `RegistrarUsuario` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -60,13 +106,41 @@ UNLOCK TABLES;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `RegistrarUsuario`(pNombre varchar(255),
 	 pCorreo varchar(100),
-     pNombreUsuario varchar(20),
+     pIdentificacion varchar(20),
      pContrasenna varchar(10))
 BEGIN
 
-	INSERT INTO tusuario(Nombre,Correo,NombreUsuario,Contrasenna)
-	VALUES (pNombre,pCorreo,pNombreUsuario,pContrasenna);
+	INSERT INTO tusuario(Nombre,Correo,Identificacion,Contrasenna)
+	VALUES (pNombre,pCorreo,pIdentificacion,pContrasenna);
 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ValidarInicioSesion` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ValidarInicioSesion`(pCorreo varchar(100),
+     pContrasenna varchar(10))
+BEGIN
+
+	SELECT	IdUsuario,
+			Nombre,
+			Correo,
+			Identificacion
+	FROM 	tusuario
+	WHERE 	Correo = pCorreo
+		AND Contrasenna = pContrasenna;
+    
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -83,4 +157,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-11 20:46:44
+-- Dump completed on 2025-06-18 19:55:40
