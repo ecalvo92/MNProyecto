@@ -70,7 +70,7 @@
                                         Si ya tienes una cuenta <a href="login.php" class="text-info m-l-5"><b>Inicia Sesión</b></a>
                                     </div>
                                     <div class="col-sm-12 text-center">
-                                        Si olvidaste la contraseña <a href="" class="text-info m-l-5"><b>Recupera el Acceso</b></a>
+                                        Si olvidaste la contraseña <a href="recuperarAcceso.php" class="text-info m-l-5"><b>Recupera el Acceso</b></a>
                                     </div>
                                 </div>
 

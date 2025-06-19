@@ -39,4 +39,23 @@
         }
     }
 
+    function ValidarCorreoModel($correo)
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL ValidarCorreo('$correo')";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return null;
+        }
+    }
+
 ?>

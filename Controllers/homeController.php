@@ -37,9 +37,22 @@ if(isset($_POST["btnRegistrarUsuario"]))
     }
 }
 
+if(isset($_POST["btnRecuperarAcceso"]))
+{
+    $correo = $_POST["txtCorreo"];
 
+    $respuesta = ValidarCorreoModel($correo);
 
+    if($respuesta != null && $respuesta -> num_rows > 0)
+    {
+        //Tomar los datos y enviar el correo electrónico al usuario
 
-//Recuperar Acceso
+        header("location: ../../Views/Home/login.php");
+    }
+    else
+    {
+        $_POST["txtMensaje"] = "Su acceso no fue recuperado correctamente.";
+    }
+}
 
 ?>
