@@ -35,6 +35,13 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
+                                    <input id="txtIdentificacion" name="txtIdentificacion" type="text" class="form-control form-control-lg" placeholder="Identificación">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
+                                    </div>
                                     <input id="txtNombre" name="txtNombre" type="text" class="form-control form-control-lg" placeholder="Nombre">
                                 </div>
 
@@ -43,13 +50,6 @@
                                         <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
                                     <input id="txtCorreo" name="txtCorreo" type="email" class="form-control form-control-lg" placeholder="Correo">
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
-                                    </div>
-                                    <input id="txtNombreUsuario" name="txtNombreUsuario" type="text" class="form-control form-control-lg" placeholder="Nombre Usuario">
                                 </div>
 
                                 <div class="input-group mb-3">

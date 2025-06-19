@@ -8,7 +8,7 @@ if(isset($_POST["btnIniciarSesion"]))
 
     $respuesta = ValidarInicioSesionModel($nombreUsuario, $contrasenna);
 
-    if($respuesta)
+    if($respuesta != null && $respuesta -> num_rows > 0)
     {
         header("location: ../../Views/Home/principal.php");
     }
@@ -22,10 +22,10 @@ if(isset($_POST["btnRegistrarUsuario"]))
 {
     $nombre = $_POST["txtNombre"];
     $correo = $_POST["txtCorreo"];
-    $nombreUsuario = $_POST["txtNombreUsuario"];
+    $identificacion = $_POST["txtIdentificacion"];
     $contrasenna = $_POST["txtContrasenna"];
 
-    $respuesta = RegistrarUsuarioModel($nombre, $correo, $nombreUsuario, $contrasenna);
+    $respuesta = RegistrarUsuarioModel($nombre, $correo, $identificacion, $contrasenna);
 
     if($respuesta)
     {

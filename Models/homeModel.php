@@ -7,24 +7,25 @@
         {
             $context = OpenDB();
 
-
+            $sp = "CALL ValidarInicioSesion('$nombreUsuario', '$contrasenna')";
+            $respuesta = $context -> query($sp);
 
             CloseDB($context);            
             return $respuesta;
         }
         catch(Exception $error)
         {
-            return false;
+            return null;
         }
     }
 
-    function RegistrarUsuarioModel($nombre, $correo, $nombreUsuario, $contrasenna)
+    function RegistrarUsuarioModel($nombre, $correo, $identificacion, $contrasenna)
     {
         try
         {
             $context = OpenDB();
 
-            $sp = "CALL RegistrarUsuario('$nombre', '$correo', '$nombreUsuario', '$contrasenna')";
+            $sp = "CALL RegistrarUsuario('$nombre', '$correo', '$identificacion', '$contrasenna')";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            
