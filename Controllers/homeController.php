@@ -2,6 +2,11 @@
     include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Models/homeModel.php';
     include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Controllers/utilitariosController.php';
 
+    if(session_status() == PHP_SESSION_NONE)
+    {
+        session_start();
+    }
+
     if(isset($_POST["btnIniciarSesion"]))
     {
         $correo = $_POST["txtCorreo"];
@@ -11,6 +16,10 @@
 
         if($respuesta != null && $respuesta -> num_rows > 0)
         {
+            $datos = mysqli_fetch_array($respuesta);
+            $_SESSION["Nombre"] = $datos["Nombre"];
+            $_SESSION["IdUsuario"] = $datos["IdUsuario"];
+
             header("location: ../../Views/Home/principal.php");
         }
         else

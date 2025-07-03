@@ -56,7 +56,7 @@ CREATE TABLE `tusuario` (
   `Identificacion` varchar(20) NOT NULL,
   `Contrasenna` varchar(10) NOT NULL,
   PRIMARY KEY (`IdUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,13 +65,64 @@ CREATE TABLE `tusuario` (
 
 LOCK TABLES `tusuario` WRITE;
 /*!40000 ALTER TABLE `tusuario` DISABLE KEYS */;
-INSERT INTO `tusuario` VALUES (1,'Eduardo Calvo Castillo','ecalvo90415@ufide.ac.cr','304590415','90415');
+INSERT INTO `tusuario` VALUES (1,'Eduardo Calvo Castillo','ecalvo90415@ufide.ac.cr','304590415','90415'),(2,'Jose David Vargas Rodríguez','jvargas00334@ufide.ac.cr','208700334','N2G52G8U');
 /*!40000 ALTER TABLE `tusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'mndatabase'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `ActualizarContrasenna` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarContrasenna`(pIdUsuario bigint(11),
+     pContrasenna varchar(10))
+BEGIN
+
+	UPDATE 	tusuario
+	SET 	Contrasenna = pContrasenna
+    WHERE 	IdUsuario = pIdUsuario;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ConsultarInfoUsuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarInfoUsuario`(pIdUsuario bigint(11))
+BEGIN
+
+	SELECT	IdUsuario,
+			Nombre,
+            Correo,
+            Identificacion,
+            Contrasenna
+	FROM 	tusuario
+	WHERE 	IdUsuario = pIdUsuario;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `RegistrarError` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -133,7 +184,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ValidarCorreo`(pCorreo varchar(100)
 BEGIN
 
 	SELECT	Nombre,
-            Contrasenna
+            IdUsuario
 	FROM 	tusuario
 	WHERE 	Correo = pCorreo;
 
@@ -181,4 +232,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-18 20:45:50
+-- Dump completed on 2025-07-02 21:04:31

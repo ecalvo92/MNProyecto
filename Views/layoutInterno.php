@@ -1,7 +1,18 @@
 <?php
 
+    if(session_status() == PHP_SESSION_NONE)
+    {
+        session_start();
+    }
+
     function ShowHeader()
     {
+        $nombreUsuario = "";
+        if(isset($_SESSION["Nombre"]))
+        {
+           $nombreUsuario = $_SESSION["Nombre"];
+        }
+
         echo 
             '<header class="topbar">
                 <nav class="navbar top-navbar navbar-expand-md navbar-dark">
@@ -36,7 +47,7 @@
                         <ul class="navbar-nav float-right">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="m-l-5 font-medium d-none d-sm-inline-block">Usuario... <i class="mdi mdi-chevron-down"></i></span>
+                                    <span class="m-l-5 font-medium d-none d-sm-inline-block">' . $nombreUsuario . '<i class="mdi mdi-chevron-down"></i></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                     <span class="with-arrow">
