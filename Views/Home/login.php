@@ -33,14 +33,14 @@
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
+                                        <span class="input-group-text" id="basic-addon1"><i class="ti-email"></i></span>
                                     </div>
                                     <input id="txtCorreo" name="txtCorreo" type="text" class="form-control form-control-lg" placeholder="Correo">
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                        <span class="input-group-text" id="basic-addon2"><i class="ti-lock"></i></span>
                                     </div>
                                     <input id="txtContrasenna" name="txtContrasenna" type="password" class="form-control form-control-lg" placeholder="Contraseña">
                                 </div>

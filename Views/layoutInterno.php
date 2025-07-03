@@ -43,11 +43,18 @@
                                         <span class="bg-primary"></span>
                                     </span>
                                     <div class="profile-dis scrollable">
+                                        <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="../Usuario/consultarPerfil.php">
-                                            <i class="fa fa-user-circle mr-2"></i> My Profile</a>
-                                            <div class="dropdown-divider"></div>
+                                            <i class="fa fa-user-circle mr-2"></i> Pefil de Usuario
+                                        </a>   
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="../Usuario/consultarPerfil.php">
+                                            <i class="fa fa-lock mr-2"></i> Control de Seguridad
+                                        </a>
+                                        <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="javascript:void(0)">
-                                            <i class="ti-wallet mr-2"></i> My Balance</a>
+                                            <i class="fa fa-sign-out mr-2"></i> Cerrar Sesión
+                                        </a>
                                     </div>
                                 </div>
                             </li>
