@@ -20,6 +20,8 @@
             $_SESSION["Nombre"] = $datos["Nombre"];
             $_SESSION["IdUsuario"] = $datos["IdUsuario"];
             $_SESSION["Contrasenna"] = $datos["Contrasenna"];
+            $_SESSION["IdRol"] = $datos["IdRol"];
+            $_SESSION["NombreRol"] = $datos["NombreRol"];
 
             header("location: ../../Views/Home/principal.php");
         }
