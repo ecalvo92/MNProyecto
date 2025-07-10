@@ -36,7 +36,7 @@
                                 <h4 class="card-title">Perfil de Usuario</h4>
                             </div>
                             <hr>
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="" method="POST">
                                 <div class="card-body">
 
                                     <?php
@@ -73,7 +73,7 @@
 
                                      <div class="row">
                                         <div class="col-md-10 text-right pb-2">
-                                            <button class="btn btn-lg btn-info" type="submit">Procesar</button>
+                                            <button id="btnActualizarPerfilUsuario" name="btnActualizarPerfilUsuario" class="btn btn-lg btn-info" type="submit">Procesar</button>
                                         </div>
                                     </div>
 
