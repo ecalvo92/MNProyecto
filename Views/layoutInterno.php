@@ -125,7 +125,8 @@
             <script src="../Funciones/sparkline.js"></script>
             <script src="../Funciones/waves.js"></script>
             <script src="../Funciones/sidebarmenu.js"></script>
-            <script src="../Funciones/custom.min.js"></script>';
+            <script src="../Funciones/custom.min.js"></script>
+            <script src="../Funciones/comunes.js"></script>';
     }
 
 ?>

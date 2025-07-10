@@ -19,7 +19,8 @@
         echo 
             '<script src="../Funciones/jquery.min.js"></script>
             <script src="../Funciones/popper.min.js"></script>
-            <script src="../Funciones/bootstrap.min.js"></script>';
+            <script src="../Funciones/bootstrap.min.js"></script>
+            <script src="../Funciones/comunes.js"></script>';
     }
 
 ?>

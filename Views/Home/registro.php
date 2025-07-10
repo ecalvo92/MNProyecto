@@ -35,7 +35,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="ti-id-badge"></i></span>
                                     </div>
-                                    <input id="txtIdentificacion" name="txtIdentificacion" type="text" class="form-control form-control-lg" placeholder="Identificación">
+                                    <input id="txtIdentificacion" name="txtIdentificacion" type="text" class="form-control form-control-lg" placeholder="Identificación"
+                                    onkeyup="ConsultarNombreApi()">
                                 </div>
 
                                 <div class="input-group mb-3">
@@ -86,7 +87,7 @@
     
     <?php
         AddJs();
-    ?>    
+    ?>
 
 </body>
 

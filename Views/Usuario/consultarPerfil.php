@@ -50,7 +50,8 @@
                                         <label class="col-sm-3 text-right control-label col-form-label">Identificación</label>
                                         <div class="col-lg-7">
                                             <input id="txtIdentificacion" name="txtIdentificacion" type="text" class="form-control form-control-lg"
-                                            value="<?php echo $resultado["Identificacion"] ?>">
+                                            value="<?php echo $resultado["Identificacion"] ?>" 
+                                            onkeyup="ConsultarNombreApi()">
                                         </div>
                                     </div>
 
