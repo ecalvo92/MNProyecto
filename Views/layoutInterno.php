@@ -1,4 +1,5 @@
 <?php
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Controllers/homeController.php';
 
     if(session_status() == PHP_SESSION_NONE)
     {
@@ -54,18 +55,27 @@
                                         <span class="bg-primary"></span>
                                     </span>
                                     <div class="profile-dis scrollable">
-                                        <div class="dropdown-divider"></div>
+                                        
+                                    <div class="dropdown-divider"></div>
+                                        
                                         <a class="dropdown-item" href="../Usuario/consultarPerfil.php">
                                             <i class="fa fa-user-circle mr-2"></i> Pefil de Usuario
                                         </a>   
+                                        
                                         <div class="dropdown-divider"></div>
+                                        
                                         <a class="dropdown-item" href="../Usuario/cambiarContrasenna.php">
                                             <i class="fa fa-lock mr-2"></i> Control de Seguridad
                                         </a>
+
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="javascript:void(0)">
-                                            <i class="fa fa-sign-out mr-2"></i> Cerrar Sesión
-                                        </a>
+
+                                        <form class="form-horizontal" action="" method="POST">
+                                            <button id="btnCerrarSesion" name="btnCerrarSesion" type="submit" class="dropdown-item" style="cursor: pointer;">
+                                                <i class="fa fa-sign-out mr-2"></i> Cerrar Sesión
+                                            </button>
+                                        </form>
+
                                     </div>
                                 </div>
                             </li>

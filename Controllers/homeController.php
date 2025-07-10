@@ -82,4 +82,10 @@
         $_POST["txtMensaje"] = "Su acceso no fue recuperado correctamente.";
     }
 
+    if(isset($_POST["btnCerrarSesion"]))
+    {
+        session_destroy();
+        header("location: ../../Views/Home/login.php");
+    }
+
 ?>
