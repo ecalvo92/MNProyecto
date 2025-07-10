@@ -19,6 +19,7 @@
             $datos = mysqli_fetch_array($respuesta);
             $_SESSION["Nombre"] = $datos["Nombre"];
             $_SESSION["IdUsuario"] = $datos["IdUsuario"];
+            $_SESSION["Contrasenna"] = $datos["Contrasenna"];
 
             header("location: ../../Views/Home/principal.php");
         }

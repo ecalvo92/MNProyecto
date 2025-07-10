@@ -59,7 +59,7 @@
                                             <i class="fa fa-user-circle mr-2"></i> Pefil de Usuario
                                         </a>   
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="../Usuario/consultarPerfil.php">
+                                        <a class="dropdown-item" href="../Usuario/cambiarContrasenna.php">
                                             <i class="fa fa-lock mr-2"></i> Control de Seguridad
                                         </a>
                                         <div class="dropdown-divider"></div>
@@ -90,7 +90,11 @@
                 <div class="scroll-sidebar">
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="ti-loop"></i><span class="hide-menu">Back To Home</span></a></li>
+                            <li class="sidebar-item"> 
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false">
+                                    <i class="ti-tag"></i><span class="hide-menu">Mant. Productos</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
