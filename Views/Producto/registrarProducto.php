@@ -1,14 +1,6 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Views/layoutInterno.php';
-    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Controllers/usuarioController.php';
-
-    if(session_status() == PHP_SESSION_NONE)
-    {
-        session_start();
-    }
-
-    $idUsuario = $_SESSION["IdUsuario"];
-    $resultado = ConsultarInfoUsuario($idUsuario);
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Controllers/productoController.php';
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +25,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Perfil de Usuario</h4>
+                                <h4 class="card-title">Registro de Productos</h4>
                             </div>
                             <hr>
                             <form class="form-horizontal" action="" method="POST">
@@ -47,33 +39,45 @@
                                     ?>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-3 text-right control-label col-form-label">Identificación</label>
-                                        <div class="col-lg-7">
-                                            <input id="txtIdentificacion" name="txtIdentificacion" type="text" class="form-control"
-                                            value="<?php echo $resultado["Identificacion"] ?>" 
-                                            onkeyup="ConsultarNombreApi()">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
                                         <label class="col-sm-3 text-right control-label col-form-label">Nombre</label>
-                                        <div class="col-md-7">
-                                            <input id="txtNombre" name="txtNombre" type="text" class="form-control"
-                                            value="<?php echo $resultado["Nombre"] ?>">
+                                        <div class="col-lg-7">
+                                            <input id="txtNombre" name="txtNombre" type="text" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-3 text-right control-label col-form-label">Correo</label>
+                                        <label class="col-sm-3 text-right control-label col-form-label">Descripción</label>
                                         <div class="col-md-7">
-                                            <input id="txtCorreo" name="txtCorreo" type="email" class="form-control"
-                                            value="<?php echo $resultado["Correo"] ?>">
+                                            <textarea id="txtDescripcion" name="txtDescripcion" class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 text-right control-label col-form-label">Precio</label>
+                                        <div class="col-md-7">
+                                            <input id="txtPrecio" name="txtPrecio" maxlength="10" type="text" class="form-control"
+                                            onkeypress="permitirSoloNumeros()">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 text-right control-label col-form-label">Cantidad</label>
+                                        <div class="col-md-7">
+                                            <input id="txtCantidad" name="txtCantidad" maxlength="5" type="text" class="form-control"
+                                            onkeypress="permitirSoloNumeros()">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 text-right control-label col-form-label">Imagen</label>
+                                        <div class="col-md-7">
+                                            <input id="txtImagen" accept="image/png" name="txtImagen" type="file" class="form-control">
                                         </div>
                                     </div>
 
                                      <div class="row">
                                         <div class="col-md-10 text-right pb-2">
-                                            <button id="btnActualizarPerfilUsuario" name="btnActualizarPerfilUsuario" class="btn btn-info" type="submit">Procesar</button>
+                                            <button id="btnRegistrarProducto" name="btnRegistrarProducto" class="btn btn-info" type="submit">Procesar</button>
                                         </div>
                                     </div>
 

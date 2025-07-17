@@ -46,27 +46,27 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 text-right control-label col-form-label">Contraseña Anterior</label>
                                         <div class="col-md-7">
-                                            <input id="txtContrasennaAnterior" name="txtContrasennaAnterior" type="password" class="form-control form-control-lg">
+                                            <input id="txtContrasennaAnterior" name="txtContrasennaAnterior" type="password" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-3 text-right control-label col-form-label">Contraseña Nueva</label>
                                         <div class="col-md-7">
-                                            <input id="txtContrasennaNueva" name="txtContrasennaNueva" type="password" class="form-control form-control-lg">
+                                            <input id="txtContrasennaNueva" name="txtContrasennaNueva" type="password" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-3 text-right control-label col-form-label">Confirmar Contraseña Nueva</label>
                                         <div class="col-md-7">
-                                            <input id="txtConfirmar" name="txtConfirmar" type="password" class="form-control form-control-lg">
+                                            <input id="txtConfirmar" name="txtConfirmar" type="password" class="form-control">
                                         </div>
                                     </div>
 
                                      <div class="row">
                                         <div class="col-md-10 text-right pb-2">
-                                            <button id="btnActualizarContrasenna" name="btnActualizarContrasenna" class="btn btn-lg btn-info" type="submit">Procesar</button>
+                                            <button id="btnActualizarContrasenna" name="btnActualizarContrasenna" class="btn btn-info" type="submit">Procesar</button>
                                         </div>
                                     </div>
 
