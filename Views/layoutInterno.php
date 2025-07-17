@@ -126,7 +126,7 @@
                         {
                             echo '
                             <li class="sidebar-item"> 
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../Producto/consultarProductos.php" aria-expanded="false">
                                     <i class="ti-tag"></i><span class="hide-menu">Mant. Productos</span>
                                 </a>
                             </li>';
@@ -154,6 +154,7 @@
                 <title>Proyecto MN</title>
                 <link href="../Estilos/style.css" rel="stylesheet">
                 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+                <link href="https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap4.css" rel="stylesheet">
             </head>';
     }
 
@@ -171,7 +172,9 @@
             <script src="../Funciones/waves.js"></script>
             <script src="../Funciones/sidebarmenu.js"></script>
             <script src="../Funciones/custom.min.js"></script>
-            <script src="../Funciones/comunes.js"></script>';
+            <script src="../Funciones/comunes.js"></script>
+            <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
+            <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap4.js"></script>';
     }
 
 ?>
