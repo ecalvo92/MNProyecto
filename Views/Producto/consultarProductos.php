@@ -51,10 +51,12 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nombre</th>
+                                                <th>Descripción</th>
                                                 <th>Precio</th>
                                                 <th>Cantidad</th>
                                                 <th>Imagen</th>
                                                 <th>Estado</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -66,10 +68,12 @@
                                                     echo "<tr>";
                                                     echo "<td>". $fila["IdProducto"] ."</td>";
                                                     echo "<td>". $fila["Nombre"] ."</td>";
+                                                    echo "<td>". $fila["Descripcion"] ."</td>";
                                                     echo "<td>". $fila["Precio"] ."</td>";
                                                     echo "<td>". $fila["Cantidad"] ."</td>";
-                                                    echo "<td>". $fila["Imagen"] ."</td>";
+                                                    echo "<td><img src=". $fila["Imagen"] ." width='125' height='125'></td>";
                                                     echo "<td>". $fila["EstadoDescripcion"] ."</td>";
+                                                     echo "<td></td>";
                                                     echo "</tr>";
                                                 }
 

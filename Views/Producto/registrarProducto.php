@@ -28,7 +28,7 @@
                                 <h4 class="card-title">Registro de Productos</h4>
                             </div>
                             <hr>
-                            <form class="form-horizontal" action="" method="POST">
+                            <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                                 <div class="card-body">
 
                                     <?php

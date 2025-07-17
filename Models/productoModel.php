@@ -20,4 +20,23 @@
         }
     }
 
+    function RegistrarProductoModel($nombre, $descripcion, $precio, $cantidad, $imagen)
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL RegistrarProducto('$nombre', '$descripcion', '$precio', '$cantidad', '$imagen')";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return false;
+        }
+    }
+
 ?>
