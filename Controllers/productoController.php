@@ -28,6 +28,24 @@
         {
             $_POST["txtMensaje"] = "El producto no fue registrada correctamente.";
         }
-    }   
+    }  
+    
+    if(isset($_POST["btnCambiarEstadoProducto"]))
+    {
+        $idProducto = $_POST["IdProducto"];
+        
+        $respuesta = CambiarEstadoProductoModel($idProducto);
+
+        if($respuesta)
+        {
+            header("location: ../../Views/Producto/consultarProductos.php");
+        }
+        else
+        {
+            $_POST["txtMensaje"] = "El producto no fue actualizado correctamente.";
+        }
+    }  
+
+    
 
 ?>
