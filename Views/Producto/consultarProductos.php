@@ -80,7 +80,7 @@
                                                             <i class="fa ' . ($fila["Estado"] ? 'fa-toggle-on text-success' : 'fa-toggle-off text-danger') . '" style="font-size:1.5em;"></i>
                                                         </a>
                                                         
-                                                        <a class="btn">
+                                                        <a href="actualizarProducto.php?q=' . $fila["IdProducto"] . '" class="btn">
                                                             <i class="fa fa-edit" style="font-size:1.5em;"></i>
                                                         </a>
 
