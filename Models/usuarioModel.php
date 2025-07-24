@@ -39,4 +39,44 @@
         }
     }
 
+    function ConsultarUsuariosModel()
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL ConsultarUsuarios()";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return null;
+        }
+    }
+
+    function CambiarEstadoUsuarioModel($idUsuario)
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL CambiarEstadoUsuario('$idUsuario')";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return false;
+        }
+    }
+
+    
+
 ?>

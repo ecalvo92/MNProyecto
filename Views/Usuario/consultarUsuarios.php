@@ -1,8 +1,8 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Views/layoutInterno.php';
-    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Controllers/productoController.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Controllers/usuarioController.php';
 
-    $resultado = ConsultarProductos();
+    $resultado = ConsultarUsuarios();
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Consulta de Productos</h4>
+                                <h4 class="card-title">Consulta de Usuarios</h4>
                             </div>
                             <hr>
                             <form class="form-horizontal" action="" method="POST">
@@ -42,7 +42,7 @@
 
                                     <div class="row">
                                         <div class="col-md-12 text-right pb-4">
-                                            <a href="registrarProducto.php" class="btn btn-info">Agregar</a>
+                                            <a href="registrarUsuario.php" class="btn btn-info">Agregar</a>
                                         </div>
                                     </div>
 
@@ -50,11 +50,10 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Identificación</th>
                                                 <th>Nombre</th>
-                                                <th>Descripción</th>
-                                                <th>Precio</th>
-                                                <th>Cantidad</th>
-                                                <th>Imagen</th>
+                                                <th>Correo</th>
+                                                <th>Rol</th>
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -66,21 +65,20 @@
                                                 While($fila = mysqli_fetch_array($resultado))
                                                 {
                                                     echo "<tr>";
-                                                    echo "<td>". $fila["IdProducto"] ."</td>";
+                                                    echo "<td>". $fila["IdUsuario"] ."</td>";
+                                                    echo "<td>". $fila["Identificacion"] ."</td>";
                                                     echo "<td>". $fila["Nombre"] ."</td>";
-                                                    echo "<td>". $fila["Descripcion"] ."</td>";
-                                                    echo "<td>". $fila["Precio"] ."</td>";
-                                                    echo "<td>". $fila["Cantidad"] ."</td>";
-                                                    echo "<td><img src=". $fila["Imagen"] ." width='125' height='125'></td>";
+                                                    echo "<td>". $fila["Correo"] ."</td>";
+                                                    echo "<td>". $fila["NombreRol"] ."</td>";
                                                     echo "<td>". $fila["EstadoDescripcion"] ."</td>";
                                                     echo '<td>
                                                     
-                                                        <a class="btn btnAbrirModal" data-toggle="modal" data-target="#CambiarEstadoProducto"
-                                                            data-id="' . $fila["IdProducto"] . '" data-nombre="' . $fila["Nombre"] . '">
+                                                        <a class="btn btnAbrirModal" data-toggle="modal" data-target="#CambiarEstadoUsuario"
+                                                            data-id="' . $fila["IdUsuario"] . '" data-nombre="' . $fila["Nombre"] . '">
                                                             <i class="fa ' . ($fila["Estado"] ? 'fa-toggle-on text-success' : 'fa-toggle-off text-danger') . '" style="font-size:1.5em;"></i>
                                                         </a>
                                                         
-                                                        <a href="actualizarProducto.php?q=' . $fila["IdProducto"] . '" class="btn">
+                                                        <a href="actualizarUsuario.php?q=' . $fila["IdUsuario"] . '" class="btn">
                                                             <i class="fa fa-edit" style="font-size:1.5em;"></i>
                                                         </a>
 
@@ -112,7 +110,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="CambiarEstadoProducto" tabindex="-1" role="dialog" aria-labelledby="tituloModal" aria-hidden="true">
+    <div class="modal fade" id="CambiarEstadoUsuario" tabindex="-1" role="dialog" aria-labelledby="tituloModal" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -125,12 +123,12 @@
                 <form action="" method="POST">
                     <div class="modal-body">
                         
-                        <input type="hidden" id="IdProducto" name="IdProducto" class="form-control">
+                        <input type="hidden" id="IdUsuario" name="IdUsuario" class="form-control">
                         <Label id="lblNombre" name="lblNombre"></Label>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" id="btnCambiarEstadoProducto" name="btnCambiarEstadoProducto" class="btn btn-primary">Procesar</button>
+                        <button type="submit" id="btnCambiarEstadoUsuario" name="btnCambiarEstadoUsuario" class="btn btn-primary">Procesar</button>
                     </div>
                 </form>
 
@@ -156,8 +154,8 @@
             const id = $(this).data('id');
             const nombre = $(this).data('nombre');
 
-            $('#IdProducto').val(id);
-            $('#lblNombre').text("¿Desea cambiar el estado del producto " + nombre + "?");
+            $('#IdUsuario').val(id);
+            $('#lblNombre').text("¿Desea cambiar el estado del usuario " + nombre + "?");
         });
 
     });

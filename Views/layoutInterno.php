@@ -122,12 +122,17 @@
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">';
 
-                        if($idRol != 1)
+                        if($idRol == 2)
                         {
                             echo '
                             <li class="sidebar-item"> 
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../Producto/consultarProductos.php" aria-expanded="false">
                                     <i class="ti-tag"></i><span class="hide-menu">Mant. Productos</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item"> 
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../Usuario/consultarUsuarios.php" aria-expanded="false">
+                                    <i class="ti-tag"></i><span class="hide-menu">Mant. Usuarios</span>
                                 </a>
                             </li>';
                         }

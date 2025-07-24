@@ -66,6 +66,27 @@
         }
     }
 
+    function ConsultarUsuarios()
+    {
+        return ConsultarUsuariosModel();
+    } 
+
+    if(isset($_POST["btnCambiarEstadoUsuario"]))
+    {
+        $idUsuario = $_POST["IdUsuario"];
+        
+        $respuesta = CambiarEstadoUsuarioModel($idUsuario);
+
+        if($respuesta)
+        {
+            header("location: ../../Views/Usuario/consultarUsuarios.php");
+        }
+        else
+        {
+            $_POST["txtMensaje"] = "El usuario no fue actualizado correctamente.";
+        }
+    }  
+
     
 
 ?>
