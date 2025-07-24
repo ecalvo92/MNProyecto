@@ -40,12 +40,6 @@
                                         }
                                     ?>
 
-                                    <div class="row">
-                                        <div class="col-md-12 text-right pb-4">
-                                            <a href="registrarUsuario.php" class="btn btn-info">Agregar</a>
-                                        </div>
-                                    </div>
-
                                     <table id="tablaDatos" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>

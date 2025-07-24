@@ -87,6 +87,9 @@
         }
     }  
 
-    
+    function ConsultarRoles()
+    {
+        return ConsultarRolesModel();
+    }     
 
 ?>

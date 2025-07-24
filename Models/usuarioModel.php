@@ -77,6 +77,23 @@
         }
     }
 
-    
+    function ConsultarRolesModel()
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL ConsultarRoles()";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return null;
+        }
+    }
 
 ?>
