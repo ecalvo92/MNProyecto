@@ -47,6 +47,9 @@
                                         }
                                     ?>
 
+                                    <input id="txtIdUsuario" name="txtIdUsuario" type="hidden" class="form-control"
+                                            value="<?php echo $resultado["IdUsuario"] ?>">
+
                                     <div class="form-group row">
                                         <label class="col-sm-3 text-right control-label col-form-label">Identificación</label>
                                         <div class="col-lg-7">
@@ -97,7 +100,7 @@
 
                                      <div class="row">
                                         <div class="col-md-10 text-right pb-2">
-                                            <button id="btnActualizarPerfilUsuario" name="btnActualizarPerfilUsuario" class="btn btn-info" type="submit">Procesar</button>
+                                            <button id="btnActualizarDatosUsuario" name="btnActualizarDatosUsuario" class="btn btn-info" type="submit">Procesar</button>
                                         </div>
                                     </div>
 

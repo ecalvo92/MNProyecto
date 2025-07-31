@@ -20,13 +20,13 @@
         }
     }
 
-    function ActualizarPerfilUsuarioModel($idUsuario, $nombre, $correo, $identificacion)
+    function ActualizarPerfilUsuarioModel($idUsuario, $nombre, $correo, $identificacion, $idRol)
     {
         try
         {
             $context = OpenDB();
 
-            $sp = "CALL ActualizarPerfilUsuario('$idUsuario', '$nombre', '$correo', '$identificacion')";
+            $sp = "CALL ActualizarPerfilUsuario('$idUsuario', '$nombre', '$correo', '$identificacion', '$idRol')";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            

@@ -19,7 +19,7 @@
         $correo = $_POST["txtCorreo"];
         $identificacion = $_POST["txtIdentificacion"];
 
-        $respuesta = ActualizarPerfilUsuarioModel($idUsuario, $nombre, $correo, $identificacion);
+        $respuesta = ActualizarPerfilUsuarioModel($idUsuario, $nombre, $correo, $identificacion, -1);
 
         if($respuesta)
         {
@@ -91,5 +91,26 @@
     {
         return ConsultarRolesModel();
     }     
+
+    if(isset($_POST["btnActualizarDatosUsuario"]))
+    {
+        $idUsuario = $_POST["txtIdUsuario"];
+        $nombre = $_POST["txtNombre"];
+        $correo = $_POST["txtCorreo"];
+        $identificacion = $_POST["txtIdentificacion"];
+        $idRol = $_POST["listaRoles"];
+
+        $respuesta = ActualizarPerfilUsuarioModel($idUsuario, $nombre, $correo, $identificacion, $idRol);
+
+        if($respuesta)
+        {
+            $_SESSION["Nombre"] = $nombre;
+            header("location: ../../Views/Usuario/consultarUsuarios.php");
+        }
+        else
+        {
+            $_POST["txtMensaje"] = "Su información no fue actualizada correctamente.";
+        }
+    }    
 
 ?>
