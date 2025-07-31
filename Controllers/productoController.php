@@ -1,9 +1,9 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Models/productoModel.php';
 
-    function ConsultarProductos()
+    function ConsultarProductos($Filtro)
     {
-        return ConsultarProductosModel();
+        return ConsultarProductosModel($Filtro);
     }
 
     if(isset($_POST["btnRegistrarProducto"]))

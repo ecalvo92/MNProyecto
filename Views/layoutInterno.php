@@ -138,7 +138,17 @@
                         }
                         else
                         {
-                            
+                            echo '
+                            <li class="sidebar-item"> 
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="..//.php" aria-expanded="false">
+                                    <i class="ti-tag"></i><span class="hide-menu">Mi Carrito</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item"> 
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="..//.php" aria-expanded="false">
+                                    <i class="ti-tag"></i><span class="hide-menu">Mis Compras</span>
+                                </a>
+                            </li>';
                         }
 
         echo '          </ul>

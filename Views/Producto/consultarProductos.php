@@ -2,7 +2,7 @@
     include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Views/layoutInterno.php';
     include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Controllers/productoController.php';
 
-    $resultado = ConsultarProductos();
+    $resultado = ConsultarProductos(-1);
 ?>
 
 <!DOCTYPE html>
