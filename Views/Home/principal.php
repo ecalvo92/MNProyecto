@@ -40,7 +40,7 @@
                         echo '            <p class="card-text"><strong>₡' . number_format($fila["Precio"], 2) . '</strong></p>';
                         echo '            <p class="card-text">Cantidad: ' . $fila["Cantidad"] . '</p>';
                         echo '            <div class="mt-auto text-center">';
-                        echo '                <button class="btn btn-primary">Agregar al carrito</button>';
+                        echo '                <button class="btn btn-primary" onclick="AgregarCarrito(' . $fila["IdProducto"] .')">Agregar al carrito</button>';
                         echo '            </div>';
                         echo '        </div>';
                         echo '    </div>';
@@ -61,6 +61,25 @@
     <?php
         AddJs();
     ?>
+    <script>
+
+        function AgregarCarrito(idProducto)
+        {
+            $.ajax({
+                url: "../../Controllers/carritoController.php",
+                type: "POST",
+                dataType: 'json',
+                data: {
+                    Accion: "AgregarCarrito",
+                    IdProducto: idProducto
+                },
+                success: function(response) {
+                   
+                }
+            });
+        }
+
+    </script>
 
 </body>
 

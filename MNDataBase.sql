@@ -18,6 +18,37 @@ USE `mndatabase`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `tcarrito`
+--
+
+DROP TABLE IF EXISTS `tcarrito`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tcarrito` (
+  `IdCarrito` bigint(11) NOT NULL AUTO_INCREMENT,
+  `IdUsuario` bigint(11) NOT NULL,
+  `IdProducto` bigint(11) NOT NULL,
+  `Cantidad` int(11) NOT NULL,
+  `FechaCarrito` datetime NOT NULL,
+  PRIMARY KEY (`IdCarrito`),
+  KEY `FK_Carrito_Usuario` (`IdUsuario`),
+  KEY `FK_Carrito_Producto` (`IdProducto`),
+  CONSTRAINT `FK_Carrito_Producto` FOREIGN KEY (`IdProducto`) REFERENCES `tproducto` (`IdProducto`),
+  CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tcarrito`
+--
+
+LOCK TABLES `tcarrito` WRITE;
+/*!40000 ALTER TABLE `tcarrito` DISABLE KEYS */;
+INSERT INTO `tcarrito` VALUES (29,1,4,3,'2025-07-30 20:30:36'),(30,1,3,1,'2025-07-30 20:30:19'),(31,1,5,1,'2025-07-30 20:30:29');
+/*!40000 ALTER TABLE `tcarrito` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `terror`
 --
 
@@ -29,7 +60,7 @@ CREATE TABLE `terror` (
   `Descripcion` varchar(5000) NOT NULL,
   `FechaHora` datetime NOT NULL,
   PRIMARY KEY (`IdError`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +69,7 @@ CREATE TABLE `terror` (
 
 LOCK TABLES `terror` WRITE;
 /*!40000 ALTER TABLE `terror` DISABLE KEYS */;
-INSERT INTO `terror` VALUES (1,'PROCEDURE mndatabase.ValidarInicioSesion2 does not exist','2025-06-18 19:49:23'),(2,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:23'),(3,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:29'),(4,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(5,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(6,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(7,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:31'),(8,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:31'),(9,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(10,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(11,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(12,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(13,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(14,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(15,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:10:39'),(16,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:14:00'),(17,'Unknown column \'pCorreo\' in \'field list\'','2025-07-09 19:01:06'),(18,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:23'),(19,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:25'),(20,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:26'),(21,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:30'),(22,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:33'),(23,'PROCEDURE mndatabase.onsultarUsuarios does not exist','2025-07-23 20:03:29'),(24,'PROCEDURE mndatabase.onsultarUsuarios does not exist','2025-07-23 20:03:31'),(25,'Column \'IdRol\' in field list is ambiguous','2025-07-23 20:07:23'),(26,'PROCEDURE mndatabase.ConsultarRoles does not exist','2025-07-23 20:38:21'),(27,'PROCEDURE mndatabase.ConsultarRoles does not exist','2025-07-23 20:38:23');
+INSERT INTO `terror` VALUES (1,'PROCEDURE mndatabase.ValidarInicioSesion2 does not exist','2025-06-18 19:49:23'),(2,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:23'),(3,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:29'),(4,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(5,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(6,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(7,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:31'),(8,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:31'),(9,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(10,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(11,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(12,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(13,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(14,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(15,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:10:39'),(16,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:14:00'),(17,'Unknown column \'pCorreo\' in \'field list\'','2025-07-09 19:01:06'),(18,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:23'),(19,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:25'),(20,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:26'),(21,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:30'),(22,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:33'),(23,'PROCEDURE mndatabase.onsultarUsuarios does not exist','2025-07-23 20:03:29'),(24,'PROCEDURE mndatabase.onsultarUsuarios does not exist','2025-07-23 20:03:31'),(25,'Column \'IdRol\' in field list is ambiguous','2025-07-23 20:07:23'),(26,'PROCEDURE mndatabase.ConsultarRoles does not exist','2025-07-23 20:38:21'),(27,'PROCEDURE mndatabase.ConsultarRoles does not exist','2025-07-23 20:38:23'),(28,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:24:57'),(29,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:21'),(30,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:22'),(31,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:22'),(32,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:22'),(33,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:23'),(34,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:23'),(35,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:24'),(36,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:24'),(37,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:25'),(38,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:25'),(39,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:26'),(40,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:26'),(41,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:27'),(42,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:27'),(43,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:27'),(44,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:25:27'),(45,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:26:15'),(46,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:26:16'),(47,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:26:17'),(48,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:26:17'),(49,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:26:18'),(50,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:26:18'),(51,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:26:19'),(52,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:27:40'),(53,'Cannot add or update a child row: a foreign key constraint fails (`mndatabase`.`tcarrito`, CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`))','2025-07-30 20:29:02');
 /*!40000 ALTER TABLE `terror` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +89,7 @@ CREATE TABLE `tproducto` (
   `Estado` bit(1) NOT NULL,
   `Imagen` varchar(255) NOT NULL,
   PRIMARY KEY (`IdProducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +98,7 @@ CREATE TABLE `tproducto` (
 
 LOCK TABLES `tproducto` WRITE;
 /*!40000 ALTER TABLE `tproducto` DISABLE KEYS */;
-INSERT INTO `tproducto` VALUES (3,'PlayStation 4 ',90000.00,'Consola de videojuegos del año 2018',3,_binary '','/Curso/Views/ImagenProductos/1.png'),(4,'PlayStation 5',220000.00,'Consolo más nueva',12,_binary '','/Curso/Views/ImagenProductos/1.png');
+INSERT INTO `tproducto` VALUES (3,'PlayStation 4 ',90000.00,'Consola de videojuegos del año 2018',3,_binary '','/Curso/Views/ImagenProductos/1.png'),(4,'PlayStation 5',220000.00,'Consolo más nueva',12,_binary '','/Curso/Views/ImagenProductos/2.png'),(5,'ps 14',450000.00,'Esto no existe pero igual lo vendemos',2,_binary '','/Curso/Views/ImagenProductos/2.png');
 /*!40000 ALTER TABLE `tproducto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +153,7 @@ CREATE TABLE `tusuario` (
 
 LOCK TABLES `tusuario` WRITE;
 /*!40000 ALTER TABLE `tusuario` DISABLE KEYS */;
-INSERT INTO `tusuario` VALUES (1,'CALVO CASTILLO EDUARDO JOSE','ecalvo90415@ufide.ac.cr','304590415','90415',1,_binary ''),(2,'NAVARRO BARRANTES HEBLYN JOSUE','hnavarro60373@ufide.ac.cr','604460373','60373',2,_binary '');
+INSERT INTO `tusuario` VALUES (1,'CALVO CASTILLO EDUARDO JOSE','ecalvo90415@ufide.ac.cr','304590415','90415',1,_binary ''),(2,'HEBLYN JOSUE NAVARRO BARRANTES','hnavarro60373@ufide.ac.cr','604460373','60373',2,_binary '');
 /*!40000 ALTER TABLE `tusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,13 +197,15 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarPerfilUsuario`(pIdUsuario bigint(11),
 	 pNombre varchar(255),
 	 pCorreo varchar(100),
-     pIdentificacion varchar(20))
+     pIdentificacion varchar(20),
+     pIdRol int(11))
 BEGIN
 
 	UPDATE tusuario
     SET Nombre = pNombre,
         Correo = pCorreo,
-        Identificacion = pIdentificacion
+        Identificacion = pIdentificacion,
+        IdRol = CASE WHEN pIdRol != -1 THEN pIdRol ELSE IdRol END
 	WHERE IdUsuario = pIdUsuario;
 
 END ;;
@@ -207,6 +240,43 @@ BEGIN
 			Imagen = CASE WHEN pImagen != '' THEN pImagen ELSE Imagen END
 	WHERE 	IdProducto = pIdProducto;
 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `AgregarCarrito` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AgregarCarrito`(pIdUsuario BIGINT(11),
+	 pIdProducto BIGINT(11))
+BEGIN
+
+	IF NOT EXISTS (SELECT 1 FROM tcarrito 
+		WHERE 	IdUsuario = pIdUsuario
+			AND IdProducto = pIdProducto) 
+	THEN
+
+		INSERT INTO tcarrito (IdUsuario, IdProducto, Cantidad, FechaCarrito)
+		VALUES (pIdUsuario, pIdProducto, 1, NOW());
+    
+    ELSE
+    
+		UPDATE 	tcarrito
+		SET		Cantidad = Cantidad + 1,
+				FechaCarrito = NOW()
+		WHERE 	IdUsuario = pIdUsuario
+			AND IdProducto = pIdProducto;
+
+    END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -330,7 +400,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarProductos`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarProductos`(pEstado int(11))
 BEGIN
 
 	SELECT 	IdProducto,
@@ -341,7 +411,8 @@ BEGIN
 			Estado,
             (CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END) 'EstadoDescripcion',
 			Imagen
-	FROM 	tproducto;
+	FROM 	tproducto
+    WHERE 	Estado = CASE WHEN pEstado = -1 THEN Estado ELSE pEstado END;
 
 END ;;
 DELIMITER ;
@@ -543,4 +614,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-23 20:52:06
+-- Dump completed on 2025-07-31  7:52:14

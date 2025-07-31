@@ -144,7 +144,7 @@
     ?>
 
     <script>
-    $(document).ready(function() {
+    $(function() {
 
         new DataTable('#tablaDatos', {
             language: {
