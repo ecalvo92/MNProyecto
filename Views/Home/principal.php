@@ -1,6 +1,9 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Views/layoutInterno.php';
     include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Controllers/productoController.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Controllers/carritoController.php';
+
+    ConsultarResumenCarrito();
 
     if($_SESSION["IdRol"] == "2")
     {
@@ -37,7 +40,7 @@
                         echo '        <div class="card-body">';
                         echo '            <h5 class="card-title">' . $fila["Nombre"] . '</h5>';
                         echo '            <p class="card-text">' . $fila["Descripcion"] . '</p>';
-                        echo '            <p class="card-text"><strong>₡' . number_format($fila["Precio"], 2) . '</strong></p>';
+                        echo '            <p class="card-text"><strong> $ ' . number_format($fila["Precio"], 2) . '</strong></p>';
                         echo '            <p class="card-text">Cantidad: ' . $fila["Cantidad"] . '</p>';
                         echo '            <div class="mt-auto text-center">';
                         echo '                <button class="btn btn-primary" onclick="AgregarCarrito(' . $fila["IdProducto"] .')">Agregar al carrito</button>';
@@ -62,23 +65,24 @@
         AddJs();
     ?>
     <script>
-
-        function AgregarCarrito(idProducto)
-        {
-            $.ajax({
-                url: "../../Controllers/carritoController.php",
-                type: "POST",
-                dataType: 'json',
-                data: {
-                    Accion: "AgregarCarrito",
-                    IdProducto: idProducto
-                },
-                success: function(response) {
-                   
+    function AgregarCarrito(idProducto) {
+        $.ajax({
+            url: "../../Controllers/carritoController.php",
+            type: "POST",
+            dataType: 'text',
+            data: {
+                Accion: "AgregarCarrito",
+                IdProducto: idProducto
+            },
+            success: function(response) {
+                if (response == "OK") {
+                    window.location.reload();
+                } else {
+                    alert(response);
                 }
-            });
-        }
-
+            }
+        });
+    }
     </script>
 
 </body>

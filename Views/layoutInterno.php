@@ -9,18 +9,15 @@
     function ShowHeader()
     {
         $nombreUsuario = "";
-        $nombreRol = "";
+        $total = "0.00";
+        $cantidad = "0";
 
         if(isset($_SESSION["Nombre"]))
         {
            $nombreUsuario = $_SESSION["Nombre"];
+           $total = number_format($_SESSION["Total"],2);
+           $cantidad = $_SESSION["Cantidad"];
         }
-
-        if(isset($_SESSION["NombreRol"]))
-        {
-           $nombreRol = $_SESSION["NombreRol"];
-        }
-
 
         echo 
             '<header class="topbar">
@@ -54,7 +51,10 @@
                             
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="m-l-5 font-medium d-none d-sm-inline-block">' . $nombreRol . '</span>
+                                    <span class="m-l-5 font-medium d-none d-sm-inline-block">
+                                        <i class="fa fa-tags mr-2"></i>' . $cantidad . '
+                                        <i class="fa fa-shopping-cart mr-2 ml-3"></i> $ ' . $total . ' IVAI
+                                    </span>
                                 </a>
                             </li>
 
@@ -110,10 +110,16 @@
     function ShowMenu()
     {
         $idRol = "";
+         $nombreRol = "";
 
         if(isset($_SESSION["IdRol"]))
         {
            $idRol = $_SESSION["IdRol"];
+        }
+
+        if(isset($_SESSION["NombreRol"]))
+        {
+           $nombreRol = $_SESSION["NombreRol"];
         }
 
         echo 
@@ -140,7 +146,7 @@
                         {
                             echo '
                             <li class="sidebar-item"> 
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="..//.php" aria-expanded="false">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../Carrito/consultarCarrito.php" aria-expanded="false">
                                     <i class="ti-tag"></i><span class="hide-menu">Mi Carrito</span>
                                 </a>
                             </li>
@@ -151,7 +157,11 @@
                             </li>';
                         }
 
-        echo '          </ul>
+                        echo '<li class="nav-small-cap">
+                                <i class="fa fa-lock"></i>
+                                <span class="hide-menu">'. $nombreRol .'</span>
+                            </li>
+                        </ul>
                     </nav>
                 </div>
             </aside>';
