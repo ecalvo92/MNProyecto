@@ -34,20 +34,24 @@
                 <div class="row">
                     <?php
                     while($fila = mysqli_fetch_array($resultado)) {
-                        echo '<div class="col-lg-4 col-md-6 col-sm-12 mb-4">';
-                        echo '    <div class="card h-100">';
-                        echo '        <img class="card-img-top mt-3" src="' . $fila["Imagen"] . '" alt="Imagen del producto" style="height: 200px; object-fit: contain;">';
-                        echo '        <div class="card-body">';
-                        echo '            <h5 class="card-title">' . $fila["Nombre"] . '</h5>';
-                        echo '            <p class="card-text">' . $fila["Descripcion"] . '</p>';
-                        echo '            <p class="card-text"><strong> $ ' . number_format($fila["Precio"], 2) . '</strong></p>';
-                        echo '            <p class="card-text">Cantidad: ' . $fila["Cantidad"] . '</p>';
-                        echo '            <div class="mt-auto text-center">';
-                        echo '                <button class="btn btn-primary" onclick="AgregarCarrito(' . $fila["IdProducto"] .')">Agregar al carrito</button>';
-                        echo '            </div>';
-                        echo '        </div>';
-                        echo '    </div>';
-                        echo '</div>';
+
+                        if($fila["Cantidad"] > 0)
+                        {
+                            echo '<div class="col-lg-4 col-md-6 col-sm-12 mb-4">';
+                            echo '    <div class="card h-100">';
+                            echo '        <img class="card-img-top mt-3" src="' . $fila["Imagen"] . '" alt="Imagen del producto" style="height: 200px; object-fit: contain;">';
+                            echo '        <div class="card-body">';
+                            echo '            <h5 class="card-title">' . $fila["Nombre"] . '</h5>';
+                            echo '            <p class="card-text">' . $fila["Descripcion"] . '</p>';
+                            echo '            <p class="card-text"><strong> $ ' . number_format($fila["Precio"], 2) . '</strong></p>';
+                            echo '            <p class="card-text">Cantidad: ' . $fila["Cantidad"] . '</p>';
+                            echo '            <div class="mt-auto text-center">';
+                            echo '                <button class="btn btn-primary" onclick="AgregarCarrito(' . $fila["IdProducto"] .')">Agregar al carrito</button>';
+                            echo '            </div>';
+                            echo '        </div>';
+                            echo '    </div>';
+                            echo '</div>';
+                        }
                     }
                     ?>
                 </div>
