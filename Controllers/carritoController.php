@@ -44,7 +44,28 @@
             $_SESSION["Total"] = $datos["Total"];
             $_SESSION["Cantidad"] = $datos["Cantidad"];
         }
-
     }
+
+    if (isset($_POST["Accion"]) && $_POST["Accion"] == "EliminarProductoCarrito") {
+        EliminarProductoCarrito($_POST["IdProducto"]);
+    }
+
+    function EliminarProductoCarrito($IdProducto)
+    {   
+        $idUsuario = $_SESSION["IdUsuario"];
+        $idProducto = $IdProducto;
+
+        $respuesta = EliminarProductoCarritoModel($idUsuario, $idProducto);
+
+        if($respuesta)
+        {
+            ConsultarResumenCarrito();
+            echo "OK";
+        }
+        else
+        {
+            echo "El producto no fue eliminado de su carrito.";
+        }
+    }     
 
 ?>

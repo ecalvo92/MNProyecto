@@ -76,8 +76,8 @@
                                                     echo "<td>". $fila["FechaCarrito"] ."</td>";
                                                     echo '<td>
                                                     
-                                                        <a class="btn btnAbrirModal" data-toggle="modal" data-target="#CambiarEstadoProducto"
-                                                            data-id="' . $fila["IdCarrito"] . '" data-nombre="' . $fila["Nombre"] . '">
+                                                        <a class="btn btnAbrirModal" data-toggle="modal" data-target="#EliminarProductoCarrito"
+                                                            data-id="' . $fila["IdProducto"] . '" data-nombre="' . $fila["Nombre"] . '">
                                                             <i class="fa fa-trash" style="font-size:1.5em;"></i>
                                                         </a>
 
@@ -125,7 +125,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="CambiarEstadoProducto" tabindex="-1" role="dialog" aria-labelledby="tituloModal"
+    <div class="modal fade" id="EliminarProductoCarrito" tabindex="-1" role="dialog" aria-labelledby="tituloModal"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -136,18 +136,16 @@
                     </button>
                 </div>
 
-                <form action="" method="POST">
-                    <div class="modal-body">
+                <div class="modal-body">
 
-                        <input type="hidden" id="IdProducto" name="IdProducto" class="form-control">
-                        <Label id="lblNombre" name="lblNombre"></Label>
+                    <input type="hidden" id="IdProducto" name="IdProducto" class="form-control">
+                    <Label id="lblNombre" name="lblNombre"></Label>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" id="btnCambiarEstadoProducto" name="btnCambiarEstadoProducto"
-                            class="btn btn-primary">Procesar</button>
+                        <button type="button" id="btnEliminarProductoCarrito" name="btnEliminarProductoCarrito"
+                            class="btn btn-primary" onclick="EliminarProductoCarrito($('#IdProducto').val())">Procesar</button>
                     </div>
-                </form>
 
             </div>
         </div>
@@ -172,10 +170,30 @@
             const nombre = $(this).data('nombre');
 
             $('#IdProducto').val(id);
-            $('#lblNombre').text("¿Desea cambiar el estado del producto " + nombre + "?");
+            $('#lblNombre').text("¿Desea eliminar el producto " + nombre + " del carrito?");
         });
 
     });
+
+    function EliminarProductoCarrito(idProducto) {
+
+        $.ajax({
+            url: "../../Controllers/carritoController.php",
+            type: "POST",
+            dataType: 'text',
+            data: {
+                Accion: "EliminarProductoCarrito",
+                IdProducto: idProducto
+            },
+            success: function(response) {
+                if (response == "OK") {
+                    window.location.reload();
+                } else {
+                    alert(response);
+                }
+            }
+        });
+    }
     </script>
 
 </body>

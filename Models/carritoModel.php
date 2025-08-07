@@ -58,4 +58,23 @@
         }
     }    
 
+    function EliminarProductoCarritoModel($IdUsuario, $IdProducto)
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL EliminarProductoCarrito('$IdUsuario', '$IdProducto')";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return false;
+        }
+    }
+
 ?>
