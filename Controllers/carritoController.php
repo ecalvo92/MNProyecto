@@ -101,4 +101,22 @@
 
     }
 
+
+
+    function ConsultarProductosTop()
+    {
+        return ConsultarProductosTopModel();
+    } 
+
+    function ConsultarClientesTop()
+    {
+        return ConsultarClientesTopModel();
+    } 
+
+    function ConsultarResumenTop()
+    {
+        $respuesta = ConsultarResumenTopModel();
+        return mysqli_fetch_array($respuesta);
+    } 
+
 ?>

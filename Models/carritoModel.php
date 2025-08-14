@@ -133,5 +133,64 @@
             return null;
         }
     }
+
+
     
+    function ConsultarProductosTopModel()
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL ConsultarProductosTop()";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return null;
+        }
+    }
+
+    function ConsultarClientesTopModel()
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL ConsultarClientesTop()";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return null;
+        }
+    }
+
+    function ConsultarResumenTopModel()
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL ConsultarResumenTop()";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return null;
+        }
+    }
+
 ?>

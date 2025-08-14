@@ -35,7 +35,7 @@ CREATE TABLE `tcarrito` (
   KEY `FK_Carrito_Producto` (`IdProducto`),
   CONSTRAINT `FK_Carrito_Producto` FOREIGN KEY (`IdProducto`) REFERENCES `tproducto` (`IdProducto`),
   CONSTRAINT `FK_Carrito_Usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,6 @@ CREATE TABLE `tcarrito` (
 
 LOCK TABLES `tcarrito` WRITE;
 /*!40000 ALTER TABLE `tcarrito` DISABLE KEYS */;
-INSERT INTO `tcarrito` VALUES (54,1,4,1,'2025-08-06 21:00:04');
 /*!40000 ALTER TABLE `tcarrito` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +68,7 @@ CREATE TABLE `tdetalle` (
   KEY `FK_DetalleProducto` (`IdProducto`),
   CONSTRAINT `FK_DetalleMaestro` FOREIGN KEY (`IdMaestro`) REFERENCES `tmaestro` (`IdMaestro`),
   CONSTRAINT `FK_DetalleProducto` FOREIGN KEY (`IdProducto`) REFERENCES `tproducto` (`IdProducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +77,7 @@ CREATE TABLE `tdetalle` (
 
 LOCK TABLES `tdetalle` WRITE;
 /*!40000 ALTER TABLE `tdetalle` DISABLE KEYS */;
-INSERT INTO `tdetalle` VALUES (1,1,4,1,600.00,600.00,78.00,678.00),(2,1,5,2,1000.00,2000.00,260.00,2260.00),(4,2,3,3,400.00,1200.00,156.00,1356.00);
+INSERT INTO `tdetalle` VALUES (1,1,4,1,600.00,600.00,78.00,678.00),(2,1,5,2,1000.00,2000.00,260.00,2260.00),(4,2,3,3,400.00,1200.00,156.00,1356.00),(5,3,4,3,600.00,1800.00,234.00,2034.00),(6,4,4,1,600.00,600.00,78.00,678.00),(7,5,3,1,400.00,400.00,52.00,452.00),(8,5,4,1,600.00,600.00,78.00,678.00),(9,5,5,1,1000.00,1000.00,130.00,1130.00),(10,6,3,3,400.00,1200.00,156.00,1356.00),(11,6,4,2,600.00,1200.00,156.00,1356.00),(12,6,5,1,1000.00,1000.00,130.00,1130.00),(13,7,8,2,120000.00,240000.00,31200.00,271200.00),(14,7,7,1,600.00,600.00,78.00,678.00),(15,7,6,1,600.00,600.00,78.00,678.00),(16,7,3,1,400.00,400.00,52.00,452.00),(17,7,4,1,600.00,600.00,78.00,678.00),(18,7,5,1,1000.00,1000.00,130.00,1130.00);
 /*!40000 ALTER TABLE `tdetalle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +121,7 @@ CREATE TABLE `tmaestro` (
   PRIMARY KEY (`IdMaestro`),
   KEY `FK_MaestroUsuario` (`IdUsuario`),
   CONSTRAINT `FK_MaestroUsuario` FOREIGN KEY (`IdUsuario`) REFERENCES `tusuario` (`IdUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +130,7 @@ CREATE TABLE `tmaestro` (
 
 LOCK TABLES `tmaestro` WRITE;
 /*!40000 ALTER TABLE `tmaestro` DISABLE KEYS */;
-INSERT INTO `tmaestro` VALUES (1,'2025-08-06 20:55:55',1,2938.00),(2,'2025-08-06 20:59:05',1,1356.00);
+INSERT INTO `tmaestro` VALUES (1,'2025-08-06 20:55:55',1,2938.00),(2,'2025-08-06 20:59:05',1,1356.00),(3,'2025-08-13 18:43:58',3,2034.00),(4,'2025-08-13 18:47:14',1,678.00),(5,'2025-08-13 18:54:18',1,2260.00),(6,'2025-08-13 19:03:58',3,3842.00),(7,'2025-08-13 19:54:31',6,274816.00);
 /*!40000 ALTER TABLE `tmaestro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,7 +150,7 @@ CREATE TABLE `tproducto` (
   `Estado` bit(1) NOT NULL,
   `Imagen` varchar(255) NOT NULL,
   PRIMARY KEY (`IdProducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,7 +159,7 @@ CREATE TABLE `tproducto` (
 
 LOCK TABLES `tproducto` WRITE;
 /*!40000 ALTER TABLE `tproducto` DISABLE KEYS */;
-INSERT INTO `tproducto` VALUES (3,'PlayStation 4 ',400.00,'Consola de videojuegos del año 2018',0,_binary '','/Curso/Views/ImagenProductos/1.png'),(4,'PlayStation 5',600.00,'Consolo más nueva',11,_binary '','/Curso/Views/ImagenProductos/2.png'),(5,'PlayStation 6',1000.00,'Esto no existe pero igual lo vendemos',0,_binary '','/Curso/Views/ImagenProductos/2.png');
+INSERT INTO `tproducto` VALUES (3,'PlayStation 4 ',400.00,'Consola de videojuegos del año 2018',3,_binary '\0','/Curso/Views/ImagenProductos/1.png'),(4,'PlayStation 5',600.00,'Consolo más nueva',4,_binary '\0','/Curso/Views/ImagenProductos/2.png'),(5,'PlayStation 6',1000.00,'Esto no existe pero igual lo vendemos',5,_binary '','/Curso/Views/ImagenProductos/2.png'),(6,'PlayStation 5',600.00,'ADASDAS',7,_binary '\0','/Curso/Views/ImagenProductos/1.png'),(7,'PlayStation 4 ',600.00,'ASDSADA',7,_binary '','/Curso/Views/ImagenProductos/2.png'),(8,'PlayStation 4 ',120000.00,'SADSADAS',4,_binary '','/Curso/Views/ImagenProductos/1.png');
 /*!40000 ALTER TABLE `tproducto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -206,7 +205,7 @@ CREATE TABLE `tusuario` (
   PRIMARY KEY (`IdUsuario`),
   KEY `FK_tusuario_trol` (`IdRol`),
   CONSTRAINT `FK_tusuario_trol` FOREIGN KEY (`IdRol`) REFERENCES `trol` (`IdRol`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +214,7 @@ CREATE TABLE `tusuario` (
 
 LOCK TABLES `tusuario` WRITE;
 /*!40000 ALTER TABLE `tusuario` DISABLE KEYS */;
-INSERT INTO `tusuario` VALUES (1,'CALVO CASTILLO EDUARDO JOSE','ecalvo90415@ufide.ac.cr','304590415','90415',1,_binary ''),(2,'HEBLYN JOSUE NAVARRO BARRANTES','hnavarro60373@ufide.ac.cr','604460373','60373',2,_binary '');
+INSERT INTO `tusuario` VALUES (1,'CALVO CASTILLO EDUARDO JOSE','ecalvo90415@ufide.ac.cr','304590415','90415',1,_binary ''),(2,'HEBLYN JOSUE NAVARRO BARRANTES','hnavarro60373@ufide.ac.cr','604460373','60373',2,_binary ''),(3,'FRANCINI DE LOS ANGELES ROMERO ARAYA','ecalvo90416@ufide.ac.cr','304590416','90416',1,_binary ''),(4,'JESUS ALBERTO NUÑEZ MOYA','ecalvo90418@ufide.ac.cr','304590418','90418',1,_binary '\0'),(5,'YAILYN PAOLA CESPEDES RODRIGUEZ','ecalvo90419@ufide.ac.cr','304590419','90419',1,_binary ''),(6,'CAROLINA DE LOS ANGELES ANGULO CALVO','ecalvo90420@ufide.ac.cr','304590420','90420',1,_binary '');
 /*!40000 ALTER TABLE `tusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -447,6 +446,96 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ConsultarClientesTop` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarClientesTop`()
+BEGIN
+
+	SELECT 	U.Identificacion,
+			U.Nombre,
+			IFNULL(COUNT(M.IdMaestro),0) 'Cantidad',
+			IFNULL(SUM(M.Total),0) 'Total'
+	FROM 	tusuario U
+    LEFT	JOIN  tmaestro M ON M.IdUsuario = U.IdUsuario
+    WHERE 	U.IdRol = 1
+    GROUP BY U.Identificacion, U.Nombre
+    ORDER BY SUM(M.Total) DESC
+    LIMIT 5;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ConsultarCompras` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarCompras`(pIdUsuario bigint(11))
+BEGIN
+
+	SELECT 	m.IdMaestro,
+			fecha,
+            SUM(SubTotal) 'SubTotal',
+            SUM(Impuesto) 'Impuesto',
+            SUM(d.Total) 'Total'
+	FROM 	tmaestro m
+    INNER JOIN tdetalle d ON m.IdMaestro = d.IdMaestro
+    WHERE 	IdUsuario = pIdUsuario
+    group by m.IdMaestro, fecha;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ConsultarDetalleCompra` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarDetalleCompra`(pIdMaestro bigint(11))
+BEGIN
+
+	SELECT 	IdMaestro,
+			d.IdProducto,
+            p.Nombre,
+            d.Cantidad,
+            d.Precio,
+            SubTotal,
+            Impuesto,
+            Total
+	FROM 	tdetalle d
+    INNER JOIN tproducto p ON d.IdProducto = p.IdProducto
+    WHERE 	IdMaestro = pIdMaestro;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ConsultarInfoProducto` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -538,6 +627,35 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ConsultarProductosTop` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarProductosTop`()
+BEGIN
+
+	SELECT 	P.IdProducto,
+			P.Nombre,
+			P.Precio,
+			IFNULL(SUM(D.Total),0) 'Total'
+	FROM 	tproducto P
+    LEFT	JOIN  tdetalle D ON P.IdProducto = D.IdProducto
+    GROUP BY P.IdProducto, P.Nombre, P.Precio
+    ORDER BY SUM(D.Total) DESC
+    LIMIT 5;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ConsultarResumenCarrito` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -556,6 +674,47 @@ BEGIN
 	FROM 	TCarrito C
     INNER 	JOIN TProducto P ON C.IdProducto = P.IdProducto
     WHERE 	IdUsuario = pIdUsuario;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ConsultarResumenTop` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarResumenTop`()
+BEGIN
+
+	DECLARE ClientesActivos INT;
+    DECLARE ClientesInactivos INT;
+    DECLARE ProductosActivos INT;
+    DECLARE ProductosInactivos INT;
+
+	SELECT 	COUNT(1) INTO ClientesActivos
+	FROM 	tusuario WHERE 	IdRol = 1 and Estado = 1;
+
+	SELECT 	COUNT(1) INTO ClientesInactivos
+	FROM 	tusuario
+    WHERE 	IdRol = 1 and Estado = 0;
+    
+    SELECT 	COUNT(1) INTO ProductosActivos
+	FROM 	tproducto
+    WHERE 	Estado = 1;
+    
+    SELECT 	COUNT(1) INTO ProductosInactivos
+	FROM 	tproducto
+    WHERE 	Estado = 0;
+
+	SELECT ClientesActivos, ClientesInactivos, ProductosActivos, ProductosInactivos;
 
 END ;;
 DELIMITER ;
@@ -829,4 +988,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-06 22:09:06
+-- Dump completed on 2025-08-13 20:58:57
