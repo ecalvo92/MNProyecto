@@ -99,7 +99,7 @@
                                             <?php 
                                                 if($_SESSION["Total"] != "0")
                                                 {
-                                                    echo '<input type="button" class="btn btn-primary" value="Procesar Pago">';
+                                                    echo '<input type="button" onclick="ProcesarPago();" class="btn btn-primary" value="Procesar Pago">';
                                                 }
                                             ?>
 
@@ -194,6 +194,27 @@
             }
         });
     }
+
+    function ProcesarPago(){
+
+         $.ajax({
+            url: "../../Controllers/carritoController.php",
+            type: "POST",
+            dataType: 'text',
+            data: {
+                Accion: "ProcesarPagoCarrito"
+            },
+            success: function(response) {
+                if (response == "OK") {
+                    window.location.reload();
+                } else {
+                    alert(response);
+                }
+            }
+        });
+
+    }
+
     </script>
 
 </body>

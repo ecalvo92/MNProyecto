@@ -77,4 +77,61 @@
         }
     }
 
+    function RealizarPagoCarritoModel($IdUsuario)
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL RealizarPagoCarrito('$IdUsuario')";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return false;
+        }
+    }
+
+    function ConsultarComprasModel($IdUsuario)
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL ConsultarCompras('$IdUsuario')";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return null;
+        }
+    }
+
+    function ConsultarDetalleCompraModel($IdMaestro)
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL ConsultarDetalleCompra('$IdMaestro')";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return null;
+        }
+    }
+    
 ?>

@@ -8,6 +8,7 @@
 
     function ShowHeader()
     {
+        $idRol = "";
         $nombreUsuario = "";
         $total = "0.00";
         $cantidad = "0";
@@ -17,6 +18,7 @@
            $nombreUsuario = $_SESSION["Nombre"];
            $total = number_format($_SESSION["Total"],2);
            $cantidad = $_SESSION["Cantidad"];
+           $idRol = $_SESSION["IdRol"];
         }
 
         echo 
@@ -47,18 +49,21 @@
                         </a>
                     </div>
                     <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav float-left mr-auto">
+                        <ul class="navbar-nav float-left mr-auto">';
                             
-                            <li class="nav-item dropdown">
+                        if($idRol != 2)
+                        {
+                            echo '<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="m-l-5 font-medium d-none d-sm-inline-block">
                                         <i class="fa fa-tags mr-2"></i>' . $cantidad . '
                                         <i class="fa fa-shopping-cart mr-2 ml-3"></i> $ ' . $total . ' IVAI
                                     </span>
                                 </a>
-                            </li>
+                            </li>';
+                        }
 
-                        </ul>
+                        echo '</ul>
                         <ul class="navbar-nav float-right">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -110,7 +115,7 @@
     function ShowMenu()
     {
         $idRol = "";
-         $nombreRol = "";
+        $nombreRol = "";
 
         if(isset($_SESSION["IdRol"]))
         {
@@ -151,7 +156,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-item"> 
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="..//.php" aria-expanded="false">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../Carrito/consultarCompras.php" aria-expanded="false">
                                     <i class="ti-tag"></i><span class="hide-menu">Mis Compras</span>
                                 </a>
                             </li>';
